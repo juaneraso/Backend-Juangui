@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const mainRouter = require("./routes/index");
 
 const app = express();
 
@@ -10,10 +11,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.status(200).send("ok");
-});
-
+app.use(mainRouter);
 module.exports = app;
 
 // Modulo responsable de crear el servidor
