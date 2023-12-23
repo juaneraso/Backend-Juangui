@@ -1,18 +1,7 @@
 const axios = require("axios");
 const { User, Post } = require("../db"); //modelo
-
-cleanArray = (apiUsers) => {
-  const clean = apiUsers.map((element) => {
-    return {
-      id: element.id,
-      name: element.name,
-      email: element.email,
-      phone: element.phone,
-      created: false,
-    };
-  });
-  return clean;
-};
+const cleanArray = require("../utils/cleanArray"); //Funcion Auxiliar
+const cleanUser = require("../utils/cleanUser");
 
 const createUser = async (name, email, phone) => {
   const newUser = await User.create({ name, email, phone });
@@ -22,14 +11,19 @@ const createUser = async (name, email, phone) => {
 const getUserByid = async (id, source) => {
   const user =
     source === "JsonPlace"
-      ? (await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`))
-          .data
+      ? cleanUser(
+          (await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`))
+            .data
+        )
       : await User.findByPk(id, {
           include: {
             model: Post,
             attributes: ["title", "body"],
           },
         });
+
+  // let result = {}; Variable auxiliar que utilice antes
+
   return user;
 };
 

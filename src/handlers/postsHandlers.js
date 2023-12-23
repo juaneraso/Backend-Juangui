@@ -1,4 +1,4 @@
-const { createPost } = require("../controllers/postsController");
+const { createPost, getAllPost } = require("../controllers/postsController");
 
 const postCreateHandler = async (req, res) => {
   const { title, body, userId } = req.body;
@@ -10,8 +10,13 @@ const postCreateHandler = async (req, res) => {
   }
 };
 
-const getPostHandler = (req, res) => {
-  res.send("Estoy en posts get");
+const getPostHandler = async (req, res) => {
+  try {
+    const posts = await getAllPost();
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 
 module.exports = {

@@ -6,6 +6,12 @@ const createPost = async (title, body, userId) => {
   return newPost;
 };
 
+const getAllPost = async () => {
+  const posts = await Post.findAll();
+  return posts;
+};
+
 module.exports = {
   createPost,
+  getAllPost,
 };

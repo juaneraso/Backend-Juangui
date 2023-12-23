@@ -6,6 +6,7 @@ const {
 
 const postsRouter = Router();
 
-postsRouter.get("/", getPostHandler),
-  postsRouter.post("/", postCreateHandler),
-  (module.exports = postsRouter);
+postsRouter.get("/", getPostHandler);
+postsRouter.post("/", postCreateHandler);
+
+module.exports = postsRouter;
