@@ -10,12 +10,12 @@ const database = new Sequelize(
 
   {
     logging: false,
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false, // Deshabilitar la verificación del certificado (puede ser necesario en ciertos entornos)
-      },
-    },
+    // dialectOptions: {
+    //   ssl: {
+    //     require: true,
+    //     rejectUnauthorized: false, // Deshabilitar la verificación del certificado (puede ser necesario en ciertos entornos)
+    //   },
+    // },
   }
 );
 
