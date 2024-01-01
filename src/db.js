@@ -6,9 +6,9 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_BDD, DATABASE_URL } =
   process.env;
 
 const database = new Sequelize(
-  // `${DATABASE_URL}`,
+  `${DATABASE_URL}`,
 
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_BDD}`,
+  // `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_BDD}`,
   {
     logging: false,
     // dialectOptions: {

@@ -1,4 +1,4 @@
-cleanArray = (apiUsers) => {
+const cleanArray = (apiUsers) => {
   const clean = apiUsers.map((element) => {
     return {
       id: element.id,
