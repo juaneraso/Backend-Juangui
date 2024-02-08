@@ -1,7 +1,8 @@
 const { Count } = require("../db");
 
 const createCount = async () => {
-  const newCount = await Count.increment({ value: 1 }, { where: { id: 1 } });
+  const value = 0;
+  const newCount = await Count.create({ value });
   return newCount;
 };
 
