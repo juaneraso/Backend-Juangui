@@ -5,9 +5,9 @@ module.exports = (database) => {
     "Count",
     {
       id: {
-        type: DataTypes.DATE,
+        type: DataTypes.INTEGER,
         primaryKey: true,
-        defaultValue: DataTypes.DATE,
+        defaultValue: 1,
       },
       value: {
         type: DataTypes.INTEGER,
