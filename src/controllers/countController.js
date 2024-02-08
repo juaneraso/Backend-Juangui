@@ -14,4 +14,13 @@ const increaseCount = async () => {
   return newCount;
 };
 
-module.exports = { createCount, increaseCount };
+const updateCount = async () => {
+  const value = 0;
+  const newCount = await Count.update(
+    { value: value },
+    { where: { id: "03b17156-7d8a-4178-ac6b-21a43d412f10" } }
+  );
+  return newCount;
+};
+
+module.exports = { createCount, increaseCount, updateCount };
