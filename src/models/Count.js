@@ -11,6 +11,7 @@ module.exports = (database) => {
       },
       value: {
         type: DataTypes.INTEGER,
+        allowNull: false,
       },
     },
     {

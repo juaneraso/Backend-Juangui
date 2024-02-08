@@ -26,7 +26,7 @@ UserModel(database);
 PostModel(database);
 CountModel(database);
 
-const { User, Post, Count } = database.models;
+const { User, Post } = database.models;
 
 User.hasMany(Post);
 Post.belongsTo(User);
