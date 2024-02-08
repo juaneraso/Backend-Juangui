@@ -1,6 +1,8 @@
 const { Sequelize } = require("sequelize");
 const UserModel = require("./models/User");
 const PostModel = require("./models/Post");
+const CountModel = require("./models/Count");
+
 require("dotenv").config();
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_BDD, DATABASE_URL } =
   process.env;
@@ -22,8 +24,9 @@ const database = new Sequelize(
 
 UserModel(database);
 PostModel(database);
+CountModel(database);
 
-const { User, Post } = database.models;
+const { User, Post, Count } = database.models;
 
 User.hasMany(Post);
 Post.belongsTo(User);
