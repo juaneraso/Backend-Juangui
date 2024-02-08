@@ -1,6 +1,6 @@
 const { createCount } = require("../controllers/countController");
 
-const createCountHandler = async () => {
+const createCountHandler = async (req, res) => {
   try {
     const newCount = await createCount();
     res.status(201).json(newCount);
