@@ -2,7 +2,7 @@ const { Count } = require("../db");
 
 const createCount = async () => {
   const value = 0;
-  const newCount = await Count.create({ value });
+  const newCount = await Count.create({ value: value });
   return newCount;
 };
 
