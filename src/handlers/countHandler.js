@@ -1,4 +1,7 @@
-const { createCount } = require("../controllers/countController");
+const {
+  createCount,
+  increaseCount,
+} = require("../controllers/countController");
 
 const createCountHandler = async (req, res) => {
   try {
@@ -9,6 +12,16 @@ const createCountHandler = async (req, res) => {
   }
 };
 
+const increaseCountHandler = async (req, res) => {
+  try {
+    const newCount = await increaseCount();
+    res.status(201).json(newCount);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 module.exports = {
   createCountHandler,
+  increaseCountHandler,
 };

@@ -6,4 +6,12 @@ const createCount = async () => {
   return newCount;
 };
 
-module.exports = { createCount };
+const increaseCount = async () => {
+  const newCount = await Count.increment(
+    { value: 1 },
+    { where: { id: "03b17156-7d8a-4178-ac6b-21a43d412f10" } }
+  );
+  return newCount;
+};
+
+module.exports = { createCount, increaseCount };

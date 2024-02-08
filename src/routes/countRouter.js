@@ -6,4 +6,6 @@ const countRouter = Router();
 
 countRouter.post("/", createCountHandler);
 
+countRouter.put("/increase", createCountHandler);
+
 module.exports = countRouter;
