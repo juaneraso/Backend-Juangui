@@ -14,6 +14,7 @@ const increaseCount = async () => {
   return newCount;
 };
 
+// resetear contador
 const updateCount = async () => {
   const value = 0;
   const newCount = await Count.update(
@@ -23,4 +24,10 @@ const updateCount = async () => {
   return newCount;
 };
 
-module.exports = { createCount, increaseCount, updateCount };
+const getCount = async () => {
+  const count = await Count.findAll();
+
+  return count;
+};
+
+module.exports = { createCount, increaseCount, updateCount, getCount };

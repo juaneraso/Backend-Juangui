@@ -2,6 +2,7 @@ const {
   createCount,
   increaseCount,
   updateCount,
+  getCount,
 } = require("../controllers/countController");
 
 const createCountHandler = async (req, res) => {
@@ -31,8 +32,18 @@ const updateCountHandler = async (req, res) => {
   }
 };
 
+const getCountHandler = async () => {
+  try {
+    const count = await getCount();
+    res.status(201).json(count);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 module.exports = {
   createCountHandler,
   increaseCountHandler,
   updateCountHandler,
+  getCountHandler,
 };
