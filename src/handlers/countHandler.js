@@ -32,7 +32,7 @@ const updateCountHandler = async (req, res) => {
   }
 };
 
-const getCountHandler = async () => {
+const getCountHandler = async (req, res) => {
   try {
     const count = await getCount();
     res.status(201).json(count);
